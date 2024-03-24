@@ -1,0 +1,237 @@
+:root{
+    --azul:   #1F6699;
+    --grisClaro: #DFE9F3;
+    --blanco: #ffffff;
+    --negro: #111111;
+    --gris: #ccc;
+    --azulClaro: #3498db;
+}
+
+html{
+    font-size: 62.5%; /*10px = 1rem*/
+    box-sizing: border-box;
+}
+
+*,*:after,*:before{
+    box-sizing: inherit;
+}
+
+body{
+    font-size: 16px; /*10px = 1rem*/
+    background-color: #E0E0E0;
+}
+
+h1{
+    font-size: 4.2rem;
+}
+
+h2{
+    font-size: 3.8rem;
+}
+
+h3{
+    font-size: 3.2rem;
+}
+
+p{
+    margin: 0;
+}
+
+.container{
+    width: 70%;
+    margin: 0 auto;
+}
+
+.btn{
+    font-size: 1.2rem;
+    padding: 0.5rem 0.8rem;
+}
+
+.header{
+    background-color: var(--azul);
+}
+
+.titulo{
+    padding: 2rem 0;
+    color: var(--blanco);
+    text-transform: uppercase;
+}
+
+.nav-principal{
+    padding-bottom: 2rem;
+}
+
+.buscar-sucursal{
+    gap: 2rem;
+}
+
+.nav{
+    display: flex;
+    gap: 2rem;
+}
+
+.nav a{
+    text-decoration: none;
+    color: var(--blanco);
+}
+
+.nav a:hover{
+    color: var(--grisClaro);
+}
+
+.btn-warning{
+    font-size: 1.2rem;
+}
+
+.form-control{
+    font-size: 1.3rem;
+}
+
+.main{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    padding: 3rem;
+    row-gap: 2rem;
+}
+
+.cartelera-info-titulo{
+    font-weight: bold;
+}
+
+.footer{
+    background-color: #111111;
+    color: var(--blanco);
+    padding: 2rem;
+}
+
+.alinear-footer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.iconos{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 1.5rem;
+}
+
+.icon:hover{
+    cursor: pointer;
+    stroke: var(--grisClaro);
+}
+
+.cartelera{
+    display: flex;
+    box-shadow: 0 0 10px rgb(0 0 0 / 30%);
+    height: fit-content;
+    background-color: var(--blanco);
+}
+
+.cartelera-img{
+    height: 35rem;
+    width: 30rem;
+}
+
+
+.cartelera-img img{
+    height: 100%;
+    width: 100%;
+}
+
+.cartelera-info{
+    flex: 2;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+.separador{
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+}
+
+.separador p{
+    margin-bottom: 0.3rem;
+}
+
+.carta{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.carta:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.carta-imagen,
+.carta-imagen img{
+    width: 25rem;
+    height: 25rem;
+}
+
+.carta-texto{
+    background-color: var(--grisClaro);
+    padding: 1rem 0.5rem;
+    text-align: center;
+    font-weight: 500;
+    overflow: hidden;
+    word-wrap: break-word;
+    max-width: 25rem;
+    white-space: normal;
+    height: 15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.carta-enlace{
+    text-decoration: none;
+    color: var(--negro);
+}
+
+#busqueda-pelicula-form{
+    display: none;
+}
+
+.busqueda-form{
+    gap: 1rem;
+}
+
+.carta-texto{
+    background-color: var(--grisClaro);
+    padding: 1rem 0;
+    text-align: center;
+    font-weight: 500;
+}
+
+.carta-resultado-busqueda .cartelera{
+    box-shadow: none;
+    background: none;
+}
+
+.carta-resultado-extra{
+    text-align: justify;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.lista-sucursales{
+    background-color: var(--blanco);
+    padding: 1rem 2rem;
+    box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+    margin: 0 auto;
+}
+
+.bg-login{
+    background-image: url("../img/bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

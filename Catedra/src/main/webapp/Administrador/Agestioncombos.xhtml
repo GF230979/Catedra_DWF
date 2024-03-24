@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Formulario de Combo de Comidas</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Estilos personalizados -->
+    <style type="text/css">
+        body {
+            padding: 20px;
+            background-image: url('https://i.pinimg.com/564x/df/e0/bf/dfe0bfdc1aa6342157a7632c74664b5f.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(80%) contrast(110%); /* Ajusta los valores según lo desees */
+        }
+        .container-form {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #ffffff; /* Fondo blanco */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .create-account {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .error-message {
+            color: red;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="container-form sign-up">
+    <h:form id="registroForm" styleClass="formulario" action="RegistroComboServlet" method="post" enctype="multipart/form-data" onsubmit="return validarFormulario()">
+        <h2 class="create-account">Registro Combo de Comidas</h2>
+
+        <h:panelGroup id="errorContainer" layout="block" styleClass="error-message" style="display: none;">
+            <p id="errorMessage"></p>
+        </h:panelGroup>
+
+        <div class="form-group">
+            <h:outputLabel for="nombre">Nombre del Combo:</h:outputLabel>
+            <h:inputText id="nombre" name="nombre" styleClass="form-control" required="true" />
+        </div>
+
+        <div class="form-group">
+            <h:outputLabel for="descripcion">Descripción:</h:outputLabel>
+            <h:inputTextarea id="descripcion" name="descripcion" styleClass="form-control" cols="30" rows="5" required="true" />
+        </div>
+
+        <div class="form-group">
+            <h:outputLabel for="precio">Precio: $</h:outputLabel>
+            <h:inputText id="precio" name="precio" styleClass="form-control" required="true" />
+        </div>
+
+        <div class="form-group">
+            <h:outputLabel for="categoria">Categoría:</h:outputLabel>
+            <h:selectOneMenu id="categoria" name="categoria" styleClass="form-control" required="true">
+                <f:selectItem itemValue="Combo de Hamburguesa" itemLabel="Combo de Hamburguesa" />
+                <f:selectItem itemValue="Combo de Pizza" itemLabel="Combo de Pizza" />
+                <f:selectItem itemValue="Combo de Sushi" itemLabel="Combo de Sushi" />
+            </h:selectOneMenu>
+        </div>
+
+        <div class="form-group">
+            <h:outputLabel for="imagenUrl">URL de la Imagen:</h:outputLabel>
+            <h:inputText id="imagenUrl" name="imagenUrl" styleClass="form-control" required="true" />
+        </div>
+
+        <div class="form-group">
+            <h:outputLabel for="ingredientes">Ingredientes:</h:outputLabel>
+            <h:inputTextarea id="ingredientes" name="ingredientes" styleClass="form-control" cols="30" rows="5" required="true" />
+        </div>
+
+        <div class="form-group">
+            <h:outputLabel for="alergenos">Alergenos:</h:outputLabel>
+            <h:inputTextarea id="alergenos" name="alergenos" styleClass="form-control" cols="30" rows="5" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Registrar Combo</button>
+    </h:form>
+</div>
+
+<script src="js/validaciones.js"></script>
+</body>
+</html>

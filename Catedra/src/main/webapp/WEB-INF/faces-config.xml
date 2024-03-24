@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd"
+              version="2.3">
+
+    <!-- Definición de reglas de navegación -->
+    <navigation-rule>
+        <from-view-id>/Usuarios/login.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>registrosesion</from-outcome>
+            <to-view-id>/Usuarios/registrosesion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/Usuarios/registrosesion.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>/Usuarios/login.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/Usuarios/registrosesion.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menu</from-outcome>
+            <to-view-id>/menu.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/menu.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>Gcodigoqr</from-outcome>
+            <to-view-id>/Gerente/Gcodigoqr.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+
+    <navigation-rule>
+        <from-view-id>/menu.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>Sreportes</from-outcome>
+            <to-view-id>/Supervisor/Sreportes.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+    <navigation-rule>
+        <from-view-id>/menu.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>Apeliculas</from-outcome>
+            <to-view-id>/Administrador/Agestionpeliculas.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/menu.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>Acombos</from-outcome>
+            <to-view-id>/Administrador/Agestioncombos.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/menu.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>Aasientos</from-outcome>
+            <to-view-id>/Administrador/Agestionasientos.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+    <navigation-rule>
+        <from-view-id>/menu.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>Greporte</from-outcome>
+            <to-view-id>/Gerente/Greporte.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/menu.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>Gcompara</from-outcome>
+            <to-view-id>/Gerente/Gcodigoqr.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/menu.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>Ulogin</from-outcome>
+            <to-view-id>/Usuarios/login.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/Gerente/Gcodigoqr.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>Gdetalle</from-outcome>
+            <to-view-id>/Gerente/Ginfopelicula.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/Gerente/Ginfopelicula.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>Gcalculadora</from-outcome>
+            <to-view-id>/Gerente/Gcalculadora.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/Usuarios/registrosesion.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>Udetalle</from-outcome>
+            <to-view-id>/Usuarios/Uinfopelicula.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/Usuarios/Uinfopelicula.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>Uasiento</from-outcome>
+            <to-view-id>/Usuarios/Uasiento.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/Usuarios/Uasiento.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>Ureserva</from-outcome>
+            <to-view-id>/Usuarios/Uresumenreserva.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/Usuarios/Uresumenreserva.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>Ucodigo</from-outcome>
+            <to-view-id>/Usuarios/Ugeneradorqr.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+</faces-config>

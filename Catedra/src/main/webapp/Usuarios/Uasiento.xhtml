@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<head>
+
+   <title>Selección de Butacas</title>
+   <!-- Bootstrap CSS -->
+   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+   <style>
+      body {
+         padding: 20px;
+         background-image: url('https://e1.pxfuel.com/desktop-wallpaper/442/861/desktop-wallpaper-get-the-latest-movies-data-movie.jpg');
+         background-size: cover;
+         background-position: center;
+         filter: brightness(80%) contrast(110%);
+      }
+      .container {
+         background-color: white; /* Fondo blanco */
+         padding: 20px; /* Espacio alrededor del contenido */
+         border-radius: 10px; /* Bordes redondeados */
+      }
+      .butaca {
+         margin: 5px;
+         text-align: center;
+      }
+      .butacas-container {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: flex-start; /* Alinear las butacas al inicio */
+         gap: 5px; /* Espacio entre las butacas */
+      }
+      .fila {
+         display: flex;
+         flex-direction: column; /* Mostrar las butacas en columnas */
+         flex: 1; /* Ocupar todo el espacio disponible */
+      }
+      .fila:nth-child(even) .butaca {
+         order: -1; /* Invertir el orden de las butacas en filas pares */
+      }
+   </style>
+</head>
+<body>
+<div class="container">
+   <h2 class="mt-5">Seleccione una butaca:</h2>
+   <form>
+      <div class="butacas-container">
+         <c:forEach var="fila" items="${['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']}">
+            <div class="fila">
+               <c:forEach var="columna" items="${['1', '2', '3', '4', '5']}">
+                  <div class="butaca">
+                     <input type="checkbox" id="butaca_${fila}_${columna}" class="mr-1" />
+                     <label for="butaca_${fila}_${columna}">${fila}${columna}</label>
+                  </div>
+               </c:forEach>
+            </div>
+         </c:forEach>
+      </div>
+      <h:button styleClass="sign-in-btn" value="Comprar Asiento" outcome="Ureserva" />
+   </form>
+</div>
+</body>
+</html>

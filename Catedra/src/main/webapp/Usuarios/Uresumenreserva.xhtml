@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Detalles de Reserva</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Estilos personalizados -->
+    <style>
+        body {
+            padding: 20px;
+            background-image: url('https://i.pinimg.com/564x/ee/09/f3/ee09f3b955c5fca14e499dc9b6711bcc.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(80%) contrast(110%); /* Ajusta los valores según lo desees */
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #007bff; /* Color del título */
+        }
+
+        .panel-grid {
+            margin-bottom: 20px;
+        }
+
+        .btn-buscar {
+            margin-top: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .output-label {
+            font-weight: bold;
+        }
+
+        .output-value {
+            color: #6c757d; /* Color del valor de salida */
+        }
+    </style>
+</h:head>
+
+<h:body>
+    <div class="container">
+        <div class="bg-white p-4">
+            <h2>Detalles de la Reserva</h2>
+
+            <h:form>
+                <div class="panel-grid">
+                    <div class="form-group">
+                        <span class="output-label">Película:</span>
+                        <span class="output-value">#{reservaBean.reserva.pelicula}</span>
+                    </div>
+
+                    <div class="form-group">
+                        <span class="output-label">Fecha de Reserva:</span>
+                        <span class="output-value">#{reservaBean.reserva.fechaReserva}</span>
+                    </div>
+
+                    <div class="form-group">
+                        <span class="output-label">Hora de la Función:</span>
+                        <span class="output-value">#{reservaBean.reserva.horaFuncion}</span>
+                    </div>
+
+                    <div class="form-group">
+                        <span class="output-label">Sala:</span>
+                        <span class="output-value">#{reservaBean.reserva.sala}</span>
+                    </div>
+
+                    <div class="form-group">
+                        <span class="output-label">Asientos:</span>
+                        <span class="output-value">#{reservaBean.reserva.asientos}</span>
+                    </div>
+
+                    <div class="form-group">
+                        <span class="output-label">Formato:</span>
+                        <span class="output-value">#{reservaBean.reserva.formato}</span>
+                    </div>
+
+                    <div class="form-group">
+                        <span class="output-label">Sucursal:</span>
+                        <span class="output-value">#{reservaBean.reserva.sucursal}</span>
+                    </div>
+
+                    <div class="form-group">
+                        <span class="output-label">Total a pagar:</span>
+                        <span class="output-value">#{reservaBean.reserva.total}</span>
+                    </div>
+                </div>
+
+                <h:button value="Finalizar" outcome="Ucodigo" styleClass="sign-in-btn" />
+            </h:form>
+        </div>
+    </div>
+</h:body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bienvenido a mi Formulario</title>
+    <link rel="stylesheet" href="css/styleLogin.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'/>
+    <h:outputStylesheet name="css/styleLogin.css" />
+
+</h:head>
+
+<h:body>
+    <div class="container-form">
+        <h:form styleClass="formulario">
+            <h2 class="create-account">Iniciar Sesión</h2>
+            <div class="iconos">
+                <div class="border-icon">
+                    <i class='bx bxl-instagram'></i>
+                </div>
+                <div class="border-icon">
+                    <i class='bx bxl-linkedin' ></i>
+                </div>
+                <div class="border-icon">
+                    <i class='bx bxl-facebook-circle' ></i>
+                </div>
+            </div>
+            <p class="cuenta-gratis">¿Aun no tienes una cuenta?</p>
+            <!-- Campos del formulario de inicio de sesión -->
+            <h:outputLabel styleClass="inputt" for="usuario" value="Usuario:" />
+            <h:inputText styleClass="estilo-input" id="usuario" value="#{loginBean.usuario}" required="true" />
+
+            <h:outputLabel styleClass="estilo-input" for="contrasenia" value="Contraseña:" />
+            <h:inputSecret styleClass="estilo-input" id="contrasenia" value="#{loginBean.contrasenia}" required="true" />
+
+            <!--<h:commandButton value="Iniciar Sesión" action="#{loginBean.iniciarSesion}" /-->
+            <h:button styleClass="sign-in-btn" value="inicio sesion" outcome="Udetalle" />
+        </h:form>
+        <div class="welcome-back">
+            <div class="message">
+                <h2>Bienvenido de nuevo</h2>
+                <p>Si aún no tienes una cuenta por favor regístrate aquí</p>
+                <h:button value="Registrarse" outcome="login" styleClass="sign-in-btn" />
+            </div>
+        </div>
+    </div>
+    <h:outputScript name="js/script.js"/>
+    <h:outputScript name="js/validaciones.js"/>
+</h:body>
+
+</html>

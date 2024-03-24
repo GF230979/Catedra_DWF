@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prime Cinema</title>
+    <h:outputStylesheet name="css/css.css" />
+    <!-- Agrega el enlace al archivo CSS de Bootstrap -->
+
+</h:head>
+
+<h:body>
+    <header class="header">
+        <div class="container">
+            <div class="titulo">
+                <h1>Prime Cinema</h1>
+            </div>
+            <div class="d-flex justify-content-between nav-principal">
+                <nav class="nav">
+                    <a href="#" id="buscar-pelicula">Buscar Película</a>
+                    <h:panelGroup rendered="#{empty perfil}">
+                        <!-- Si no hay un perfil (usuario no ha iniciado sesión) -->
+                        <h:outputLink value="login.xhtml">Iniciar Sesión</h:outputLink>
+                    </h:panelGroup>
+                    <h:panelGroup rendered="#{not empty perfil}">
+                        <!-- Si hay un perfil (usuario ha iniciado sesión) -->
+                        <h:form>
+                            <h:commandLink value="Cerrar Sesión" action="#{loginBean.cerrarSesion}" />
+                        </h:form>
+                    </h:panelGroup>
+                    <h:outputLink value="#">Registrarse</h:outputLink>
+                </nav>
+                <h:form id="seleccionar-sucursal-form" action="SucursalServlet" method="post" class="d-flex buscar-sucursal">
+                    <h:selectOneMenu id="seleccionar-sucursales" value="#{sucursalBean.sucursalSeleccionada}">
+                        <f:selectItem itemValue="" itemLabel="Seleccione una sucursal" />
+                        <f:selectItems value="#{sucursalBean.sucursales}" var="sucursal" itemValue="#{sucursal.id}" itemLabel="#{sucursal.nombre}" />
+                    </h:selectOneMenu>
+                    <h:commandButton value="Ver Cartelera" class="btn btn-warning" />
+                </h:form>
+            </div>
+            <div class="row">
+                <h:form id="busqueda-pelicula-form" action="BuscarPeliculaServlet" method="post" class="my-3 col-md-4 busqueda-form">
+                    <h:inputText id="buscar-input" value="#{peliculaBean.criterioBusqueda}" placeholder="Buscar película aquí" class="form-control" required="true" />
+                    <h:commandButton value="Buscar" class="btn btn-primary" action="#{peliculaBean.buscarPelicula}" />
+                    <h:commandButton value="Cancelar" class="btn btn-danger" type="reset" />
+                </h:form>
+            </div>
+        </div>
+    </header>
+
+    <main class="container main" id="cartelera-inicial">
+        <!-- Aquí mostrar la cartelera inicial -->
+    </main>
+
+    <section class="container" id="cartelera-sucursal">
+        <!-- Aquí mostrar la cartelera de la sucursal seleccionada -->
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <h2>Prime Cinema</h2>
+            <div class="alinear-footer">
+                <div class="integrantes">
+                    <h3>Integrantes</h3>
+                    <ul>
+                        <li>Daniel Alejandro Ábrego Coto</li>
+                        <li>Diego Antonio Fuentes Guardado</li>
+                        <li>Franly Azael Marroquín Carmona</li>
+                        <li>Fernando Ernesto Urrutia Vaquero</li>
+                        <li>Jefferson Adonis Melgar Sura</li>
+                    </ul>
+                </div>
+                <div class="contacto">
+                    <h4>Contáctanos</h4>
+                    <div class="iconos">
+                        <a href="#" class="icon-tabler-brand-instagram"></a>
+                        <a href="#" class="icon-tabler-brand-twitter"></a>
+                        <a href="#" class="icon-tabler-brand-facebook"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Agrega el enlace al archivo JavaScript de jQuery -->
+
+    <!-- Agrega el enlace al archivo JavaScript personalizado -->
+    <h:outputScript name="js/script.js" />
+</h:body>
+
+</html>

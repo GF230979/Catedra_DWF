@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bienvenido a mi Formulario</title>
+    <h:outputStylesheet name="css/styleLogin.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'/>
+</h:head>
+
+<h:body>
+
+    <div class="container-form sign-up">
+        <div class="welcome-back">
+            <div class="message">
+                <h2>Bienvenido a WacheNova</h2>
+                <p>Si ya tienes una cuenta por favor inicia sesion aquí</p>
+                <h:button class="sign-up-btn" value="Iniciar Sesion" outcome="registrosesion" />
+            </div>
+        </div>
+        <h:form styleClass="formulario" prependId="false">
+            <h2 class="create-account">Crear una cuenta</h2>
+            <div class="iconos">
+                <div class="border-icon">
+                    <i class='bx bxl-instagram'></i>
+                </div>
+                <div class="border-icon">
+                    <i class='bx bxl-linkedin'></i>
+                </div>
+                <div class="border-icon">
+                    <i class='bx bxl-facebook-circle'></i>
+                </div>
+            </div>
+            <p class="cuenta-gratis">Crear una cuenta gratis</p>
+            <br/>
+            <br/>
+            <!-- Dentro de tu formulario -->
+            <div id="errorContainer" style="display: none; color: red;">
+                <p id="errorMessage"></p>
+            </div>
+            <!-- Campos del formulario de registro -->
+            <h:outputLabel styleClass="inputt" for="login" value="Usuario:" />
+            <h:inputText styleClass="inputt" id="login" value="#{bean.login}" placeholder="Usuario" required="true" />
+
+            <h:outputLabel styleClass="inputt" for="password" value="Contraseña:" />
+            <h:inputSecret styleClass="inputt" id="password" value="#{bean.password}" placeholder="Contraseña" required="true" />
+
+            <h:outputLabel styleClass="inputt" for="nombre_Completo" value="Nombre Completo:" />
+            <h:inputText styleClass="inputt" id="nombre_Completo" value="#{bean.nombreCompleto}" placeholder="Nombre Completo" required="true" />
+
+            <h:outputLabel styleClass="inputt" for="dui" value="DUI:" />
+            <h:inputText styleClass="inputt" id="dui" value="#{bean.dui}" placeholder="DUI" required="true" />
+
+            <h:outputLabel styleClass="inputt" for="direccion" value="Direccion:" />
+            <h:inputText styleClass="inputt" id="direccion" value="#{bean.direccion}" placeholder="Dirección" required="true" />
+
+            <h:outputLabel styleClass="inputt" for="email" value="Correo Electronico:" />
+            <h:inputText styleClass="inputt" id="email" value="#{bean.correoElectronico}" placeholder="Correo Electrónico" required="true" />
+
+            <h:outputLabel styleClass="inputt" for="telefono" value="Telefono:" />
+            <h:inputText styleClass="inputt" id="telefono" value="#{bean.telefono}" placeholder="Teléfono" required="true" />
+
+            <!-- Otros campos que puedas necesitar -->
+
+            <h:commandButton styleClass="inputt" value="Registrarse" action="#{bean.registrarUsuario}" />
+        </h:form>
+    </div>
+
+
+    <h:outputScript name="js/script.js"/>
+    <h:outputScript name="js/validaciones.js"/>
+</h:body>
+</html>

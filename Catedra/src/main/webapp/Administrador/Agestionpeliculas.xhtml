@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Bienvenido a mi Formulario</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <!-- Estilos personalizados -->
+    <style type="text/css">
+        body {
+            padding: 20px;
+            background-image: url('https://i.pinimg.com/originals/5f/1b/43/5f1b432473b699d02f307e486c417b88.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(70%) contrast(110%); /* Ajusta los valores según lo desees */
+        }
+
+        .container-form {
+            max-width: 500px; /* Ancho máximo del formulario */
+            margin: auto;
+            padding: 20px;
+            background-color: #ffffff; /* Fondo blanco */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+        }
+
+        .formulario {
+            margin-bottom: 20px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="container-form sign-up">
+    <h:form id="registroForm" styleClass="formulario" action="RegistroPeliculaServlet" method="post" onsubmit="return validarFormulario2()">
+        <h2 class="create-account">Registro Película</h2>
+
+
+        <h:panelGroup id="errorContainer" layout="block" style="display: none; color: red;">
+            <p id="errorMessage"></p>
+        </h:panelGroup>
+
+        <div class="form-group">
+            <h:outputLabel for="nombre_pelicula">Nombre de la película:</h:outputLabel>
+            <h:inputText id="nombre_pelicula" name="nombre_pelicula" styleClass="form-control" placeholder="Nombre de la película" required="true" />
+        </div>
+
+        <div class="form-group">
+            <h:outputLabel for="genero">Género:</h:outputLabel>
+            <h:selectOneMenu id="genero" name="genero" styleClass="form-control" required="true">
+                <f:selectItem itemValue="Acción" itemLabel="Acción" />
+                <f:selectItem itemValue="Comedia" itemLabel="Comedia" />
+                <f:selectItem itemValue="Drama" itemLabel="Drama" />
+                <!-- Agrega más géneros según tus necesidades -->
+            </h:selectOneMenu>
+        </div>
+
+        <div class="form-group">
+            <h:outputLabel for="clasificacion">Clasificación:</h:outputLabel>
+            <h:selectOneMenu id="clasificacion" name="clasificacion" styleClass="form-control" required="true">
+                <f:selectItem itemValue="A" itemLabel="A" />
+                <f:selectItem itemValue="B" itemLabel="B" />
+                <f:selectItem itemValue="C" itemLabel="C" />
+                <f:selectItem itemValue="D" itemLabel="D" />
+                <!-- Agrega más clasificaciones según tus necesidades -->
+            </h:selectOneMenu>
+        </div>
+
+        <div class="form-group">
+            <h:outputLabel for="formato_proyeccion">Formato:</h:outputLabel>
+            <h:selectOneMenu id="formato_proyeccion" name="formato_proyeccion" styleClass="form-control">
+                <f:selectItem itemValue="Tradicional" itemLabel="Tradicional" />
+                <f:selectItem itemValue="3D" itemLabel="3D" />
+            </h:selectOneMenu>
+        </div>
+
+        <div class="form-group">
+            <h:outputLabel for="descripcion">Descripción:</h:outputLabel>
+            <h:inputTextarea id="descripcion" name="descripcion" styleClass="form-control" cols="30" rows="5" />
+        </div>
+
+        <div class="form-group">
+            <h:outputLabel for="imagen_url">URL de la Imagen:</h:outputLabel>
+            <h:inputText id="imagen_url" name="imagen_url" styleClass="form-control" />
+        </div>
+
+        <div class="form-group">
+            <h:outputLabel for="precio_tercera_edad">Precio_tercera_edad: $</h:outputLabel>
+            <h:inputText id="precio_tercera_edad" name="precio_tercera_edad" styleClass="form-control" value="3.90" readonly="true" />
+        </div>
+
+        <div class="form-group">
+            <h:outputLabel for="precio_adultos">Precio_adultos: $</h:outputLabel>
+            <h:inputText id="precio_adultos" name="precio_adultos" styleClass="form-control" value="5.00" readonly="true" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Registrar Película</button>
+    </h:form>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+    <title>Visualizacion de Reportes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <style type="text/css">
+        /* Estilos personalizados */
+        body {
+            padding: 20px;
+            background-image: url('https://i.pinimg.com/564x/bf/d8/d4/bfd8d45c30c04708585ac45eb4247ac0.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(80%) contrast(110%);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .reporte-header {
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffffff; /* Fondo blanco */
+        }
+
+        .reporte-table {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffffff; /* Fondo blanco */
+        }
+
+        .total-ingresos {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffffff; /* Fondo blanco */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="reporte-header">
+        <h2>Seleccione el tipo de reporte:</h2>
+        <h:form>
+            <div class="form-group">
+                <label for="tipoReporte">Tipo de Reporte:</label>
+                <h:selectOneMenu value="#{reporteBean.tipoReporte}" id="tipoReporte" class="form-control">
+                    <f:selectItem itemValue="ingresosSala" itemLabel="Ingresos por Sala" />
+                    <f:selectItem itemValue="ingresosSucursal" itemLabel="Ingresos por Sucursal" />
+                    <f:selectItem itemValue="ingresosCombos" itemLabel="Ingresos por Combos de Comidas" />
+                </h:selectOneMenu>
+            </div>
+            <button type="submit" class="btn btn-primary">Generar</button>
+        </h:form>
+    </div>
+
+    <div class="reporte-table">
+        <h3>Reporte de Ingresos por Sala</h3>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Sala</th>
+                <th>Cantidad de Entradas Vendidas</th>
+                <th>Ingresos Totales</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Sala 1</td>
+                <td>50</td>
+                <td>$500.00</td>
+            </tr>
+            <!-- Aquí puedes agregar más filas según sea necesario -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="total-ingresos">
+        <h3>Total de Ingresos: $1700.00</h3>
+    </div>
+</div>
+
+<!-- Bootstrap JavaScript -->
+
+</body>
+</html>

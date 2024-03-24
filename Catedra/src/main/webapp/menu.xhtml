@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu desplegable con submenús</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Estilos personalizados -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #000000;
+        }
+
+        .menu {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px 20px;
+        }
+
+        .menu__container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu__logo {
+            margin: 0;
+        }
+
+        .menu__links {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .menu__item {
+            margin-right: 20px;
+            position: relative;
+        }
+
+        .menu__link {
+            color: #000000; /* Cambio del color del texto a negro */
+            text-decoration: none;
+        }
+
+        .menu__link:hover {
+            text-decoration: underline;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            background-color: #007bff;
+            padding: 10px;
+            top: 100%;
+            left: 0;
+            z-index: 1;
+        }
+
+        .submenu__link {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .menu__item:hover .submenu {
+            display: block;
+        }
+
+        .menu__hamburguer {
+            display: none;
+            cursor: pointer;
+        }
+
+        .slider-container {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .slider {
+            text-align: center;
+        }
+
+        .titulo {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .nav-principal {
+            margin-top: 20px;
+        }
+
+        .buscar-sucursal {
+            margin-left: auto;
+        }
+
+        .busqueda-form {
+            margin-top: 20px;
+        }
+
+        .sign-in-btn {
+            margin-top: 20px;
+            display: block;
+            text-align: center;
+        }
+        .h2t{
+            color: #000000;
+        }
+    </style>
+</head>
+
+<body>
+<nav class="menu">
+    <section class="menu__container">
+        <h1 class="menu__logo">Bienvenido a WacheNova</h1>
+
+        <ul class="menu__links">
+            <li class="menu__item menu__item--show">
+                <h:button value="Supervisor" outcome="Sreportes"  styleClass="menu__link menu__link--inside"/>
+            </li>
+            <li class="menu__item menu__item--show">
+
+                <h:button value="Gerente" outcome="Gcompara"  styleClass="menu__link menu__link--inside"/>
+
+                <ul class="submenu">
+                    <li>  <h:button value="Comparacion de QR" outcome="Gcompara"  styleClass="menu__link menu__link--inside"/></li>
+                    <li>  <h:button value="Generar Reportes" outcome="Greporte"  styleClass="menu__link menu__link--inside"/></li>
+
+                </ul>
+            </li>
+            <li class="menu__item menu__item--show">
+                <h:button value="Administrador" outcome="Apeliculas"  styleClass="menu__link menu__link--inside"/>
+                <ul class="submenu">
+                    <li><h:button value="Gestion de peliculas" outcome="Apeliculas"  styleClass="menu__link menu__link--inside"/></li>
+                    <li><h:button value="Gestion de combos" outcome="Acombos"  styleClass="menu__link menu__link--inside"/></li>
+                    <li><h:button value="Gestion de asientos" outcome="Aasientos"  styleClass="menu__link menu__link--inside"/></li>
+                </ul>
+            </li>
+            <li class="menu__item menu__item--show">
+                <h:button value="Usuario" outcome="Ulogin"  styleClass="menu__link menu__link--inside"/>
+
+            </li>
+
+        </ul>
+
+        <div class="menu__hamburguer">
+            <img src="xd" class="menu__img" />
+        </div>
+    </section>
+
+    <div class="slider-container">
+        <div class="slider position">
+            <h2 class="h2t">¡Disfruta de tu experiencia en WacheNova!</h2>
+            <h2 class="h2t">Explora el menú y realiza tus tareas con facilidad</h2>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="titulo">
+        <h1> Prime Cinema
+        </h1>
+    </div>
+    <div class="d-flex justify-content-between nav-principal">
+        <nav class="nav">
+            <a href="#" id="buscar-pelicula">Buscar Película</a>
+
+            <a href="#">Registrarse</a>
+        </nav>
+        <form action="SucursalServlet" method="post" class="d-flex buscar-sucursal" id="seleccionar-sucursal-form">
+            <select class="form-control" id="seleccionar-sucursales" name="sucursal">
+                <option>Seleccione una sucursal</option>
+            </select>
+            <h:commandButton type="submit" value="Ver Cartelera" class="btn btn-warning" />
+        </form>
+    </div>
+    <div class="row">
+        <form action="BuscarPeliculaServlet" method="post" id="busqueda-pelicula-form" class="my-3 col-md-4 busqueda-form">
+            <h:inputText type="text" id="buscar-input" name="busqueda" placeholder="Buscar película aquí" class="form-control" required="true" />
+            <h:commandButton type="submit" class="btn btn-primary" value="Buscar"></h:commandButton>
+            <h:commandButton type="button" id="cancelar-busqueda" class="btn btn-danger" value="Cancelar"></h:commandButton>
+        </form>
+    </div>
+
+</div>
+<h:outputScript library="js" name="Menu.js" />
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+    <title>Generador de Reportes</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Estilos personalizados -->
+    <style type="text/css">
+        body {
+            padding: 20px;
+            background-image: url('https://i.pinimg.com/564x/c2/df/4c/c2df4ccb6029e7c8f20640f56ac8bb7b.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(80%) contrast(110%); /* Ajusta los valores según lo desees */
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .reporte-section {
+            margin-bottom: 40px;
+            background-color: #ffffff; /* Fondo blanco */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        }
+
+        .reporte-title {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .reporte-table {
+            margin-bottom: 20px;
+        }
+
+        .total-ingresos {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .btn-generar {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="bg-white p-4 rounded">
+        <h2>Seleccione el tipo de reporte:</h2>
+        <h:form>
+            <div class="form-group">
+                <h:selectOneMenu value="#{reporteBean.tipoReporte}" id="tipoReporte" class="form-control">
+                    <f:selectItem itemValue="ingresosSala" itemLabel="Ingresos por Sala" />
+                    <f:selectItem itemValue="ingresosSucursal" itemLabel="Ingresos por Sucursal" />
+                    <f:selectItem itemValue="ingresosCombos" itemLabel="Ingresos por Combos de Comidas" />
+                </h:selectOneMenu>
+            </div>
+            <h:commandButton value="Generar" action="#{bean.procesarCodigo}" class="btn btn-primary btn-generar" />
+
+            <div class="reporte-section">
+                <h3 class="reporte-title">Reporte de Ingresos por Sala</h3>
+                <div class="reporte-table">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Sala</th>
+                            <th>Cantidad de Entradas Vendidas</th>
+                            <th>Ingresos Totales</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Sala 1</td>
+                            <td>50</td>
+                            <td>$500.00</td>
+                        </tr>
+                        <!-- Agrega más filas según necesites -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="reporte-section">
+                <h3 class="reporte-title">Total de Ingresos:</h3>
+                <div class="total-ingresos">$1700.00</div>
+            </div>
+        </h:form>
+    </div>
+</div>
+
+
+</body>
+</html>

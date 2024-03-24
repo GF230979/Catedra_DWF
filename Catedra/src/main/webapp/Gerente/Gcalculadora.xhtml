@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Calculadora de Vuelto</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Estilos personalizados -->
+    <style type="text/css">
+        body {
+            padding: 20px;
+            background-image: url('https://i.pinimg.com/564x/38/f2/a8/38f2a8db0f5375b7be47edeec1a8d7d4.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(80%) contrast(110%); /* Ajusta los valores según lo desees */
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .panel-grid {
+            margin-bottom: 20px;
+            background-color: #ffffff; /* Color de fondo blanco */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        }
+
+        .btn-calcular {
+            margin-top: 10px;
+        }
+
+        .vuelto {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</h:head>
+
+<h:body>
+    <div class="container bg-white p-4 rounded">
+        <h2>Calculadora de Vuelto</h2>
+
+        <h:form>
+            <div class="form-group row">
+                <label for="montoTotal" class="col-sm-2 col-form-label">Monto Total:</label>
+                <div class="col-sm-10">
+                    <h:inputText id="montoTotal" value="#{calculadoraBean.montoTotal}" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="montoPagado" class="col-sm-2 col-form-label">Monto Pagado:</label>
+                <div class="col-sm-10">
+                    <h:inputText id="montoPagado" value="#{calculadoraBean.montoPagado}" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h:commandButton value="Calcular Vuelto" action="#{calculadoraBean.calcularVuelto}" class="btn btn-primary btn-calcular" />
+            </div>
+
+            <h:outputText value="Vuelto: #{calculadoraBean.vuelto}" rendered="#{not empty calculadoraBean.vuelto}" class="vuelto" />
+        </h:form>
+    </div>
+
+
+</h:body>
+
+</html>
